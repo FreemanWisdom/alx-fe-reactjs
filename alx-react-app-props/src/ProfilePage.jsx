@@ -1,11 +1,11 @@
 import React from 'react'
-import UserInfo from './UserInfo'
+import UserProfile from './UserProfile'
 
 function ProfilePage() {
   return (
     <div style={{ padding: '20px' }}>
       <h1>Profile</h1>
-      <UserInfo />
+      <UserProfile />
     </div>
   )
 }
