@@ -8,6 +8,7 @@ const RecipeDetails = () => {
   const addFavorite = useRecipeStore(state => state.addFavorite)
   const removeFavorite = useRecipeStore(state => state.removeFavorite)
   const favorites = useRecipeStore(state => state.favorites)
+  const deleteRecipe = useRecipeStore(state => state.deleteRecipe)
 
   if (!recipe) return <div>Recipe not found</div>
 
@@ -21,6 +22,17 @@ const RecipeDetails = () => {
         <button onClick={() => navigate(`/edit/${recipe.id}`)}>Edit</button>
         <button onClick={() => { if (isFav) removeFavorite(recipe.id); else addFavorite(recipe.id) }} style={{ marginLeft: 8 }}>
           {isFav ? 'Remove Favorite' : 'Add to Favorites'}
+        </button>
+        <button
+          onClick={() => {
+            if (window.confirm('Delete this recipe? This action cannot be undone.')) {
+              deleteRecipe(recipe.id)
+              navigate('/')
+            }
+          }}
+          style={{ marginLeft: 8, color: 'white', background: '#c00' }}
+        >
+          Delete
         </button>
         <Link to="/" style={{ marginLeft: 8 }}>Back</Link>
       </div>
