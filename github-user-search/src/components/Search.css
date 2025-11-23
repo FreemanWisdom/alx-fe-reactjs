@@ -1,0 +1,13 @@
+.search-root{max-width:800px;margin:24px auto;padding:0 16px;font-family:system-ui,Segoe UI,Roboto,Arial}
+.mode-toggle{display:flex;gap:12px;margin-bottom:12px}
+.search-form{display:flex;gap:8px;flex-wrap:wrap}
+.search-form input{flex:1 1 200px;padding:8px;border:1px solid #ccc;border-radius:6px}
+.search-form button{padding:8px 12px;border-radius:6px;border:none;background:#0ea5e9;color:white}
+.loading{color:#0ea5e9}
+.error{color:#dc2626}
+.user-card{display:flex;gap:12px;align-items:center;margin-top:16px;padding:12px;border:1px solid #eee;border-radius:8px}
+.user-card img{width:80px;height:80px;border-radius:8px}
+.results{margin-top:16px}
+.result-item{display:flex;gap:12px;align-items:center;padding:8px;border-bottom:1px solid #f1f1f1}
+.result-item img{width:48px;height:48px;border-radius:6px}
+.load-more{margin-top:12px;padding:8px 12px;border-radius:6px;border:none;background:#06b6d4;color:white}
