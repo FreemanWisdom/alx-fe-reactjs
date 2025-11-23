@@ -7,6 +7,7 @@ import RecommendationsList from './components/RecommendationsList'
 import RecipeDetails from './components/RecipeDetails'
 import EditRecipeForm from './components/EditRecipeForm'
 import { Routes, Route, Link } from 'react-router-dom'
+// Router: BrowserRouter is mounted in `src/main.jsx` to provide routing context
 import { useEffect } from 'react'
 
 function App() {
