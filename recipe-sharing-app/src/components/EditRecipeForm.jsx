@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useRecipeStore } from './recipeStore'
+import { useRecipeStore } from '../recipeStore'
 
 const EditRecipeForm = () => {
   const { id } = useParams()
@@ -13,8 +13,8 @@ const EditRecipeForm = () => {
 
   if (!recipe) return <div>Recipe not found</div>
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault()
     updateRecipe({ ...recipe, title, description })
     navigate(`/recipes/${recipe.id}`)
   }

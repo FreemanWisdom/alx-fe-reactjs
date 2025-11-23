@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useRecipeStore } from './recipeStore'
+import { useRecipeStore } from '../recipeStore'
+import DeleteRecipeButton from './DeleteRecipeButton'
 
 const RecipeDetails = () => {
   const { id } = useParams()
@@ -23,17 +24,7 @@ const RecipeDetails = () => {
         <button onClick={() => { if (isFav) removeFavorite(recipe.id); else addFavorite(recipe.id) }} style={{ marginLeft: 8 }}>
           {isFav ? 'Remove Favorite' : 'Add to Favorites'}
         </button>
-        <button
-          onClick={() => {
-            if (window.confirm('Delete this recipe? This action cannot be undone.')) {
-              deleteRecipe(recipe.id)
-              navigate('/')
-            }
-          }}
-          style={{ marginLeft: 8, color: 'white', background: '#c00' }}
-        >
-          Delete
-        </button>
+        <DeleteRecipeButton id={recipe.id} style={{ marginLeft: 8, color: 'white', background: '#c00' }} />
         <Link to="/" style={{ marginLeft: 8 }}>Back</Link>
       </div>
     </div>
