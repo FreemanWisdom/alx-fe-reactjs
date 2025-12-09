@@ -71,17 +71,17 @@ const AddRecipeForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Title</label>
-            <input value={title} onChange={e => setTitle(e.target.value)} className="mt-1 block w-full rounded border-gray-300 shadow-sm" />
+            <input value={title} onChange={e => setTitle(e.target.value)} className="mt-1 block w-full md:w-3/4 rounded border-gray-300 shadow-sm" />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Ingredients (one per line)</label>
-            <textarea value={ingredients} onChange={e => setIngredients(e.target.value)} rows={4} className="mt-1 block w-full rounded border-gray-300 shadow-sm" />
+            <textarea value={ingredients} onChange={e => setIngredients(e.target.value)} rows={4} className="mt-1 block w-full md:w-3/4 rounded border-gray-300 shadow-sm" />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Preparation Steps (one per line)</label>
-            <textarea value={steps} onChange={e => setSteps(e.target.value)} rows={6} className="mt-1 block w-full rounded border-gray-300 shadow-sm" />
+            <textarea value={steps} onChange={e => setSteps(e.target.value)} rows={6} className="mt-1 block w-full md:w-3/4 rounded border-gray-300 shadow-sm" />
           </div>
 
           <div className="flex items-center justify-between">
