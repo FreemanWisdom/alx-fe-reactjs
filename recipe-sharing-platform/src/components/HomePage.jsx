@@ -26,10 +26,10 @@ const HomePage = () => {
           <Link to="/add" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Recipe</Link>
         </header>
 
-        <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {recipes.map(r => (
             <article key={r.id} className="bg-white rounded-lg shadow hover:shadow-lg transform hover:-translate-y-1 transition p-4">
-              <img src={r.image} alt={r.title} className="w-full h-40 object-cover rounded" />
+              <img src={r.image} alt={r.title} className="w-full h-40 md:h-48 object-cover rounded" />
               <h2 className="mt-3 text-xl font-semibold text-gray-800">{r.title}</h2>
               <p className="text-gray-600 mt-2">{r.summary}</p>
               <div className="mt-4">
