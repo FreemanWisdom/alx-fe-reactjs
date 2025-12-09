@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Your custom styles below — these will be applied after Tailwind */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -68,5 +69,12 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Example: use @layer to add component-level styles */
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow p-4;
   }
 }
