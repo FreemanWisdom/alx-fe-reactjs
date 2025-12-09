@@ -35,8 +35,8 @@ const RecipeDetail = () => {
           </ul>
         </section>
 
-        <section className="mt-6">
-          <h3 className="text-lg font-semibold">Steps</h3>
+        <section id="instructions" className="mt-6">
+          <h3 className="text-lg font-semibold">Instructions</h3>
           <ol className="list-decimal list-inside mt-2 text-gray-700 space-y-2">
             {recipe.steps.map((s, i) => (
               <li key={i}>{s}</li>
