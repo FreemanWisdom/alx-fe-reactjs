@@ -5,25 +5,30 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState('')
   const [ingredients, setIngredients] = useState('')
   const [steps, setSteps] = useState('')
-  const [error, setError] = useState('')
+  const [errors, setErrors] = useState([])
   const navigate = useNavigate()
+
+  const validate = () => {
+    const found = []
+    if (!title.trim()) found.push('Title is required.')
+    if (!ingredients.trim()) found.push('Ingredients are required.')
+    if (!steps.trim()) found.push('Preparation steps are required.')
+
+    const ingredientsArr = ingredients.split('\n').map(s => s.trim()).filter(Boolean)
+    if (ingredientsArr.length < 2) found.push('Please provide at least two ingredients (one per line).')
+
+    setErrors(found)
+    return found.length === 0
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
-    setError('')
+    setErrors([])
 
-    if (!title.trim() || !ingredients.trim() || !steps.trim()) {
-      setError('Please fill in all fields.')
-      return
-    }
+    if (!validate()) return
 
     const ingredientsArr = ingredients.split('\n').map(s => s.trim()).filter(Boolean)
     const stepsArr = steps.split('\n').map(s => s.trim()).filter(Boolean)
-
-    if (ingredientsArr.length < 2) {
-      setError('Please provide at least two ingredients (one per line).')
-      return
-    }
 
     // For this starter project we store new recipe in localStorage
     const saved = JSON.parse(localStorage.getItem('recipes') || 'null')
@@ -46,7 +51,7 @@ const AddRecipeForm = () => {
         navigate(`/recipe/${newRecipe.id}`)
       })
       .catch(() => {
-        setError('Failed to create recipe (could not read base data).')
+        setErrors(['Failed to create recipe (could not read base data).'])
       })
   }
 
@@ -54,7 +59,15 @@ const AddRecipeForm = () => {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-2xl mx-auto bg-white rounded shadow p-6">
         <h2 className="text-2xl font-bold mb-4">Add New Recipe</h2>
-        {error && <div className="mb-4 text-red-600">{error}</div>}
+        {errors && errors.length > 0 && (
+          <div className="mb-4 text-red-600">
+            <ul className="list-disc list-inside">
+              {errors.map((err, i) => (
+                <li key={i}>{err}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Title</label>
