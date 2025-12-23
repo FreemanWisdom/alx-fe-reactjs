@@ -9,6 +9,7 @@ const validationSchema = Yup.object({
 });
 
 export default function FormikForm() {
+  // validationSchema is defined above and includes string().required()
   return (
     <div>
       <h2>Registration (Formik)</h2>
