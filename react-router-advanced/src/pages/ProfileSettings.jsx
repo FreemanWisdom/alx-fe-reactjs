@@ -1,0 +1,5 @@
+function ProfileSettings() {
+  return <p>Profile settings page</p>;
+}
+
+export default ProfileSettings;
